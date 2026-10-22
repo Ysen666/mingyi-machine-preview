@@ -9,12 +9,12 @@
       description:
         "Explore the LE range with our team and discuss your production requirements.",
     },
-    270: {
-      image: "machine-270-s9.webp",
-      model: "LOG 270-S9",
+    "270-s9-ii": {
+      image: "machine-270-s9-ii.jpg",
+      model: "LOG 270-S9 II",
       title: "Make room for your next project.",
       description:
-        "Discover the S9 range. Tell us about your application so we can help with equipment selection.",
+        "Discover the S9 II range. Tell us about your application so we can help with equipment selection.",
     },
     140: {
       image: "machine-140-le.webp",
