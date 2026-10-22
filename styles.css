@@ -231,6 +231,11 @@ a:focus-visible {
   font-size: 11px;
   color: #a1a1a6;
 }
+.hero-stage-caption span {
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: #000c;
+}
 .hero-stage-caption span:first-child {
   color: #e7e7e9;
 }
@@ -983,9 +988,9 @@ a:focus-visible {
     margin-top: 34px;
   }
   .hero-machine {
-    width: 110%;
+    width: 100%;
     max-width: none;
-    left: -5%;
+    left: 0;
     height: 100%;
     top: -1%;
   }

@@ -40,12 +40,16 @@
       const machine = machines[button.dataset.machine];
       const image = document.querySelector("#product-image");
       document.querySelectorAll(".product-choice").forEach((choice) => {
-        const active = choice === button;
+        const active = choice.dataset.machine === button.dataset.machine;
         choice.classList.toggle("is-selected", active);
         choice.setAttribute("aria-pressed", String(active));
       });
       image.src = `assets/images/${machine.image}`;
       image.alt = `${machine.model} injection molding machine, side view`;
+      const heroImage = document.querySelector(".hero-machine");
+      heroImage.src = image.src;
+      heroImage.alt = image.alt;
+      document.querySelector("#hero-model").textContent = machine.model;
       document.querySelector("#product-model").textContent = machine.model;
       document.querySelector("#product-title").textContent = machine.title;
       document.querySelector("#product-description").textContent =

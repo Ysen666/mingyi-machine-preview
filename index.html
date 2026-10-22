@@ -11,10 +11,10 @@
     <meta name="theme-color" content="#000000" />
     <title>LOG Machines · Mingyi</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=advantages-first-20261022" />
+    <link rel="stylesheet" href="styles.css?v=hero-picker-20261022" />
     <script src="assets/vendor/gsap.min.js" defer></script>
     <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
-    <script src="main.js?v=advantages-first-20261022" defer></script>
+    <script src="main.js?v=hero-picker-20261022" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -59,8 +59,39 @@
             fetchpriority="high"
           />
           <div class="hero-stage-caption">
-            <span>Engineering in focus.</span><span>LOG 450F-LE</span>
+            <span>Engineering in focus.</span
+            ><span id="hero-model">LOG 450F-LE</span>
           </div>
+        </div>
+        <div
+          class="product-picker"
+          role="group"
+          aria-label="Choose a homepage machine preview"
+        >
+          <button
+            class="product-choice is-selected"
+            type="button"
+            data-machine="450f"
+            aria-pressed="true"
+          >
+            450F-LE
+          </button>
+          <button
+            class="product-choice"
+            type="button"
+            data-machine="270-s9-ii"
+            aria-pressed="false"
+          >
+            270-S9 II
+          </button>
+          <button
+            class="product-choice"
+            type="button"
+            data-machine="140"
+            aria-pressed="false"
+          >
+            140-LE
+          </button>
         </div>
         <div class="hero-footnote">
           <span>Guangdong Mingyi · Sales & service</span
