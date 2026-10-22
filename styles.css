@@ -359,6 +359,9 @@ a:focus-visible {
   line-height: 1.6;
   margin-top: 18px;
 }
+.advantages.section-space {
+  padding-top: 75px;
+}
 .why-heading {
   text-align: center;
   padding-bottom: 15px;
@@ -381,21 +384,50 @@ a:focus-visible {
   margin-top: 25px;
 }
 .advantage-index {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 34px;
+  text-align: left;
+}
+.advantage-summary {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 25px 20px;
+  border: 1px solid #2c2c30;
+  border-radius: 20px;
+  background: #0d0d0f;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+.advantage-summary svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  color: var(--orange);
+}
+.summary-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.summary-text strong {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+.summary-text > span {
   font-size: 12px;
+  line-height: 1.65;
   color: #aaaab0;
-  margin-top: 42px;
 }
-.advantage-index a {
-  padding-bottom: 7px;
-  border-bottom: 1px solid #454548;
-}
-.advantage-index a:hover {
-  color: #fff;
-  border-color: #fff;
+.advantage-summary:hover {
+  border-color: #77777c;
+  background: #18181b;
 }
 .advantage {
   padding-top: 125px;
@@ -847,6 +879,9 @@ a:focus-visible {
   }
 }
 @media (max-width: 1000px) {
+  .advantage-index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .shell {
     width: calc(100% - 64px);
   }
@@ -910,7 +945,7 @@ a:focus-visible {
     gap: 19px;
     font-size: 11px;
   }
-  .nav-links > a:nth-child(2) {
+  .nav-machines {
     display: none;
   }
   .nav-contact {
@@ -1033,9 +1068,33 @@ a:focus-visible {
     margin-top: 22px;
   }
   .advantage-index {
-    gap: 16px 21px;
-    font-size: 11px;
-    margin-top: 28px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 25px;
+  }
+  .advantages.section-space {
+    padding-top: 48px;
+  }
+  .advantage-summary {
+    flex-direction: row;
+    align-items: center;
+    gap: 17px;
+    padding: 17px 18px;
+    border-radius: 16px;
+  }
+  .advantage-summary svg {
+    width: 24px;
+    height: 24px;
+  }
+  .summary-text {
+    gap: 5px;
+  }
+  .summary-text strong {
+    font-size: 16px;
+  }
+  .summary-text > span {
+    font-size: 12px;
+    line-height: 1.5;
   }
   .advantage {
     padding-top: 85px;

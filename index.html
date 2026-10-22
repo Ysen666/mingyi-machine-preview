@@ -11,10 +11,10 @@
     <meta name="theme-color" content="#000000" />
     <title>LOG Machines · Mingyi</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=advantages-first-20261022" />
     <script src="assets/vendor/gsap.min.js" defer></script>
     <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
-    <script src="main.js?v=270-s9-ii-20261022" defer></script>
+    <script src="main.js?v=advantages-first-20261022" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -25,8 +25,8 @@
         ></a>
         <span class="nav-description">LOG injection molding machines</span>
         <div class="nav-links">
-          <a href="#machines">Machines</a>
           <a href="#why-us">Why choose us</a>
+          <a class="nav-machines" href="#machines">Machines</a>
           <a class="nav-contact" href="#contact"
             >Let’s talk <span aria-hidden="true">↗</span></a
           >
@@ -44,8 +44,8 @@
             The machine is just the beginning.<br />Explore LOG machines with
             Mingyi, your sales and service partner.
           </p>
-          <a class="button button-light" href="#machines"
-            >Explore the machines <span aria-hidden="true">↓</span></a
+          <a class="button button-light" href="#why-us"
+            >Why choose Mingyi <span aria-hidden="true">↓</span></a
           >
         </div>
         <div class="hero-stage">
@@ -71,102 +71,116 @@
       </section>
 
       <section
-        class="product-section section-space shell"
-        id="machines"
-        aria-labelledby="machines-title"
-      >
-        <div class="section-heading">
-          <h2 id="machines-title">Meet your next<br />production partner.</h2>
-          <p>
-            Real machines. Real possibilities.<br />Find the right direction for
-            your production,<br class="desktop-break" />
-            then let’s work through the details.
-          </p>
-        </div>
-        <div class="product-showcase">
-          <div class="product-topline">
-            <span>Explore our machines</span
-            ><span class="product-model" id="product-model">LOG 450F-LE</span>
-          </div>
-          <div class="product-picture">
-            <img
-              id="product-image"
-              src="assets/images/machine-450f-le.webp"
-              width="1417"
-              height="862"
-              alt="LOG 450F-LE machine, side view"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-bottomline">
-            <div>
-              <h3 id="product-title">A closer look at LOG.</h3>
-              <p id="product-description">
-                Explore the LE range with our team and discuss your production
-                requirements.
-              </p>
-            </div>
-            <a
-              class="circle-link"
-              href="#contact"
-              aria-label="Contact our team about LOG machines"
-              >↗</a
-            >
-          </div>
-        </div>
-        <div
-          class="product-picker"
-          role="group"
-          aria-label="Choose a machine to preview"
-        >
-          <button
-            class="product-choice is-selected"
-            type="button"
-            data-machine="450f"
-            aria-pressed="true"
-          >
-            450F-LE
-          </button>
-          <button
-            class="product-choice"
-            type="button"
-            data-machine="270-s9-ii"
-            aria-pressed="false"
-          >
-            270-S9 II
-          </button>
-          <button
-            class="product-choice"
-            type="button"
-            data-machine="140"
-            aria-pressed="false"
-          >
-            140-LE
-          </button>
-        </div>
-        <p class="product-note">
-          Machines shown are from the manufacturer’s product materials. Ask us
-          about current models and configurations.
-        </p>
-      </section>
-
-      <section
         class="advantages section-space"
         id="why-us"
         aria-labelledby="why-title"
       >
         <div class="why-heading shell">
-          <p class="section-intro">A machine. A partnership.</p>
           <h2 id="why-title">Why Choose Us?</h2>
           <p class="why-description">
-            More ways to move your business forward.<br />From your first
-            conversation to your next upgrade.
+            Five ways we support your production.<br />One dedicated partner.
           </p>
           <div class="advantage-index" aria-label="Explore our advantages">
-            <a href="#trade-in">Trade-in</a><a href="#rental">Rent to buy</a
-            ><a href="#custom">Customization</a
-            ><a href="#remote">Remote support</a
-            ><a href="#support">24/7 service</a>
+            <a class="advantage-summary" href="#trade-in">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 8h15m-4-4 4 4-4 4M20 16H5m4-4-4 4 4 4" />
+              </svg>
+              <span class="summary-text"
+                ><strong>Trade in. Upgrade.</strong
+                ><span
+                  >Exchange existing equipment for your next machine.</span
+                ></span
+              >
+            </a>
+            <a class="advantage-summary" href="#rental">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="4" y="5" width="16" height="16" rx="3" />
+                <path d="M8 3v4m8-4v4M4 10h16m-11 5 2 2 4-4" />
+              </svg>
+              <span class="summary-text"
+                ><strong>Rent. Then decide.</strong
+                ><span>Flexible rental, with an option to buy.</span></span
+              >
+            </a>
+            <a class="advantage-summary" href="#custom">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 3v8m0 4v6m7-18v3m0 4v11m7-18v11m0 4v3" />
+                <rect x="2" y="11" width="6" height="4" rx="1" />
+                <rect x="9" y="6" width="6" height="4" rx="1" />
+                <rect x="16" y="14" width="6" height="4" rx="1" />
+              </svg>
+              <span class="summary-text"
+                ><strong>Made for your process.</strong
+                ><span
+                  >Four customization directions for your production.</span
+                ></span
+              >
+            </a>
+            <a class="advantage-summary" href="#remote">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 13v-1a8 8 0 0 1 16 0v1m0 4v1a3 3 0 0 1-3 3h-3" />
+                <rect x="2" y="11" width="5" height="7" rx="2" />
+                <rect x="17" y="11" width="5" height="7" rx="2" />
+              </svg>
+              <span class="summary-text"
+                ><strong>Support across borders.</strong
+                ><span
+                  >Remote troubleshooting and replacement parts.</span
+                ></span
+              >
+            </a>
+            <a class="advantage-summary" href="#support">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <span class="summary-text"
+                ><strong>Here, 24/7.</strong
+                ><span
+                  >Dedicated sales and technical follow-through.</span
+                ></span
+              >
+            </a>
           </div>
         </div>
 
@@ -455,6 +469,86 @@
             the issue and agreed arrangements.
           </p>
         </article>
+      </section>
+
+      <section
+        class="product-section section-space shell"
+        id="machines"
+        aria-labelledby="machines-title"
+      >
+        <div class="section-heading">
+          <h2 id="machines-title">Meet your next<br />production partner.</h2>
+          <p>
+            Real machines. Real possibilities.<br />Find the right direction for
+            your production,<br class="desktop-break" />
+            then let’s work through the details.
+          </p>
+        </div>
+        <div class="product-showcase">
+          <div class="product-topline">
+            <span>Explore our machines</span
+            ><span class="product-model" id="product-model">LOG 450F-LE</span>
+          </div>
+          <div class="product-picture">
+            <img
+              id="product-image"
+              src="assets/images/machine-450f-le.webp"
+              width="1417"
+              height="862"
+              alt="LOG 450F-LE machine, side view"
+              loading="lazy"
+            />
+          </div>
+          <div class="product-bottomline">
+            <div>
+              <h3 id="product-title">A closer look at LOG.</h3>
+              <p id="product-description">
+                Explore the LE range with our team and discuss your production
+                requirements.
+              </p>
+            </div>
+            <a
+              class="circle-link"
+              href="#contact"
+              aria-label="Contact our team about LOG machines"
+              >↗</a
+            >
+          </div>
+        </div>
+        <div
+          class="product-picker"
+          role="group"
+          aria-label="Choose a machine to preview"
+        >
+          <button
+            class="product-choice is-selected"
+            type="button"
+            data-machine="450f"
+            aria-pressed="true"
+          >
+            450F-LE
+          </button>
+          <button
+            class="product-choice"
+            type="button"
+            data-machine="270-s9-ii"
+            aria-pressed="false"
+          >
+            270-S9 II
+          </button>
+          <button
+            class="product-choice"
+            type="button"
+            data-machine="140"
+            aria-pressed="false"
+          >
+            140-LE
+          </button>
+        </div>
+        <p class="product-note">
+          Machines shown are from the manufacturer’s product materials. Ask us
+          about current models and configurations.
+        </p>
       </section>
 
       <section

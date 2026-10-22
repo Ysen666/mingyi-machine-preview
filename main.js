@@ -122,39 +122,6 @@
         },
       });
 
-      const product = document.querySelector(".product-showcase");
-      gsap.fromTo(
-        product,
-        { scale: 0.94 },
-        {
-          scale: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: product,
-            start: "top 95%",
-            end: "top 30%",
-            scrub: 0.45,
-          },
-        },
-      );
-
-      // Create the pin before lower sections so their trigger positions include its space.
-      if (desktop && window.innerHeight >= 720) {
-        gsap.to(".why-heading h2", {
-          scale: 1.035,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".why-heading",
-            start: "top 110px",
-            end: "+=150",
-            pin: true,
-            pinSpacing: true,
-            scrub: 0.25,
-            anticipatePin: 1,
-          },
-        });
-      }
-
       document.querySelectorAll(".advantage").forEach((section) => {
         const card = section.querySelector(".visual-card");
         // Scroll-linked composition, without intercepting wheel or touch input.
@@ -208,6 +175,22 @@
             .fromTo(".support-visual > img", { y: 25 }, { y: 0 }, 0);
         }
       });
+
+      const product = document.querySelector(".product-showcase");
+      gsap.fromTo(
+        product,
+        { scale: 0.94 },
+        {
+          scale: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: product,
+            start: "top 95%",
+            end: "top 30%",
+            scrub: 0.45,
+          },
+        },
+      );
     },
   );
 
