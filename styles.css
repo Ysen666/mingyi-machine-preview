@@ -1500,10 +1500,4 @@ a:focus-visible {
   *:after {
     transition: none !important;
   }
-  .advantage-summary {
-    --card-x: 0px !important;
-    --card-y: 0px !important;
-    --card-angle: 0deg !important;
-    --card-scale: 1 !important;
-  }
 }
