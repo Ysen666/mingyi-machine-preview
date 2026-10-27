@@ -422,8 +422,6 @@ a:focus-visible {
 .advantage-summary {
   --card-x: 0px;
   --card-y: 0px;
-  --card-angle: 0deg;
-  --card-scale: 1;
   display: flex;
   min-width: 0;
   position: relative;
@@ -438,11 +436,10 @@ a:focus-visible {
   border-radius: 12px;
   background: var(--card);
   color: var(--card-ink);
-  transform: translate(var(--card-x), var(--card-y)) rotate(var(--card-angle))
-    scale(var(--card-scale));
-  transform-origin: center 75%;
+  transform: translate(var(--card-x), var(--card-y));
+  pointer-events: none;
   transition:
-    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.72s cubic-bezier(0.25, 0.1, 0.25, 1),
     background-color 0.2s;
 }
 .summary-text {
@@ -497,60 +494,90 @@ a:focus-visible {
   outline: 2px solid var(--orange);
   outline-offset: 5px;
 }
-@media (min-width: 1101px) and (hover: hover) and (pointer: fine) {
-  .advantage-summary:nth-child(1) {
-    --card-angle: -3deg;
-    --card-y: 15px;
+@media (hover: hover) and (pointer: fine) {
+  .advantage-index {
+    --card-spread: 8px;
+    --card-lift: 32px;
+  }
+  .advantage-summary {
+    --card-position: 0;
   }
   .advantage-summary:nth-child(2) {
-    --card-angle: -1.5deg;
-    --card-y: 4px;
+    --card-position: 1;
+  }
+  .advantage-summary:nth-child(3) {
+    --card-position: 2;
   }
   .advantage-summary:nth-child(4) {
-    --card-angle: 1.5deg;
-    --card-y: 4px;
+    --card-position: 3;
   }
   .advantage-summary:nth-child(5) {
-    --card-angle: 3deg;
-    --card-y: 15px;
+    --card-position: 4;
   }
-  .advantage-index
-    .advantage-summary:has(+ .advantage-summary:is(:hover, :focus-visible)) {
-    --card-x: -26px;
-    --card-angle: -4deg;
+  .advantage-index:has(
+    .advantage-summary:nth-child(1):is(:hover, :focus-visible)
+  ) {
+    --active-position: 0;
   }
-  .advantage-index
-    .advantage-summary:is(:hover, :focus-visible)
-    + .advantage-summary {
-    --card-x: 26px;
-    --card-angle: 4deg;
+  .advantage-index:has(
+    .advantage-summary:nth-child(2):is(:hover, :focus-visible)
+  ) {
+    --active-position: 1;
   }
-  .advantage-index .advantage-summary:is(:hover, :focus-visible) {
-    --card-x: 0px;
-    --card-y: -36px;
-    --card-angle: 0deg;
-    --card-scale: 1.035;
+  .advantage-index:has(
+    .advantage-summary:nth-child(3):is(:hover, :focus-visible)
+  ) {
+    --active-position: 2;
+  }
+  .advantage-index:has(
+    .advantage-summary:nth-child(4):is(:hover, :focus-visible)
+  ) {
+    --active-position: 3;
+  }
+  .advantage-index:has(
+    .advantage-summary:nth-child(5):is(:hover, :focus-visible)
+  ) {
+    --active-position: 4;
+  }
+  .advantage-index:has(.advantage-summary:is(:hover, :focus-visible))
+    .advantage-summary {
+    --card-x: calc(
+      (var(--card-position) - var(--active-position)) * var(--card-spread)
+    );
+  }
+  .advantage-summary:is(:hover, :focus-visible) {
+    --card-y: calc(-1 * var(--card-lift));
   }
 }
 @media (min-width: 641px) and (max-width: 1100px) and (hover: hover) and (pointer: fine) {
   .advantage-index {
     column-gap: 40px;
     row-gap: 56px;
+    --card-lift: 24px;
   }
-  .advantage-index .advantage-summary:is(:hover, :focus-visible) {
-    --card-y: -28px;
-    --card-scale: 1.03;
+  .advantage-summary:nth-child(3n + 1) {
+    --card-position: 0;
   }
-  .advantage-summary:not(:nth-child(3n)):has(
-      + .advantage-summary:is(:hover, :focus-visible)
-    ) {
-    --card-x: -18px;
-    --card-angle: -2deg;
+  .advantage-summary:nth-child(3n + 2) {
+    --card-position: 1;
   }
-  .advantage-summary:is(:hover, :focus-visible):not(:nth-child(3n))
-    + .advantage-summary {
-    --card-x: 18px;
-    --card-angle: 2deg;
+  .advantage-summary:nth-child(3n) {
+    --card-position: 2;
+  }
+  .advantage-index:has(
+    .advantage-summary:nth-child(3n + 1):is(:hover, :focus-visible)
+  ) {
+    --active-position: 0;
+  }
+  .advantage-index:has(
+    .advantage-summary:nth-child(3n + 2):is(:hover, :focus-visible)
+  ) {
+    --active-position: 1;
+  }
+  .advantage-index:has(
+    .advantage-summary:nth-child(3n):is(:hover, :focus-visible)
+  ) {
+    --active-position: 2;
   }
 }
 @media (max-width: 1100px) and (min-width: 641px) {
@@ -1479,23 +1506,16 @@ a:focus-visible {
 @media (max-width: 640px) and (hover: hover) and (pointer: fine) {
   .advantage-index {
     row-gap: 32px;
-  }
-  .advantage-index .advantage-summary:is(:hover, :focus-visible) {
-    --card-y: -10px;
-    --card-scale: 1.015;
-  }
-  .advantage-summary:has(+ .advantage-summary:is(:hover, :focus-visible)) {
-    --card-y: -22px;
-  }
-  .advantage-summary:is(:hover, :focus-visible) + .advantage-summary {
-    --card-y: 12px;
+    --card-spread: 4px;
+    --card-lift: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  *,
+  /* This user-requested card interaction keeps its own transition. */
+  *:not(.advantage-card),
   *:before,
   *:after {
     transition: none !important;
