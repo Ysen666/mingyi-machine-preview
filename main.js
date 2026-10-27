@@ -85,6 +85,52 @@
     });
   });
 
+  if (window.gsap && window.ScrollToPlugin) {
+    gsap.registerPlugin(ScrollToPlugin);
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (
+          event.defaultPrevented ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        const hash = link.getAttribute("href");
+        const target = document.getElementById(hash.slice(1));
+        if (!target) return;
+        event.preventDefault();
+        const padding =
+          parseFloat(
+            getComputedStyle(document.documentElement).scrollPaddingTop,
+          ) || 0;
+        const margin =
+          parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        if (location.hash !== hash) history.pushState(null, "", hash);
+        // User-requested anchor motion also runs when OS animations are disabled.
+        gsap.to(window, {
+          scrollTo: { y: target, offsetY: padding + margin, autoKill: true },
+          duration: 0.65,
+          ease: "power2.inOut",
+          overwrite: "auto",
+          onComplete: () => {
+            const hadTabindex = target.hasAttribute("tabindex");
+            if (!hadTabindex) target.setAttribute("tabindex", "-1");
+            target.focus({ preventScroll: true });
+            if (!hadTabindex)
+              target.addEventListener(
+                "blur",
+                () => target.removeAttribute("tabindex"),
+                { once: true },
+              );
+          },
+        });
+      });
+    });
+  }
+
   // Content is visible by default, including when animation scripts are unavailable.
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
