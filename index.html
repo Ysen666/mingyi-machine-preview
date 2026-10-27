@@ -11,10 +11,24 @@
     <meta name="theme-color" content="#000000" />
     <title>LOG Machines · Mingyi</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=hero-picker-20261022" />
+    <link
+      rel="preload"
+      href="assets/fonts/Barlow-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/Barlow-SemiBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css?v=service-cards-20261027" />
     <script src="assets/vendor/gsap.min.js" defer></script>
     <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
-    <script src="main.js?v=hero-picker-20261022" defer></script>
+    <script src="main.js?v=service-cards-20261027" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -49,7 +63,6 @@
           >
         </div>
         <div class="hero-stage">
-          <div class="stage-light" aria-hidden="true"></div>
           <img
             class="hero-machine"
             src="assets/images/machine-450f-le.webp"
@@ -96,7 +109,7 @@
         <div class="hero-footnote">
           <span>Guangdong Mingyi · Sales & service</span
           ><a href="#why-us"
-            >More than a machine <span aria-hidden="true">↓</span></a
+            >Explore our services <span aria-hidden="true">↓</span></a
           >
         </div>
       </section>
@@ -112,106 +125,161 @@
             Five ways we support your production.<br />One dedicated partner.
           </p>
           <div class="advantage-index" aria-label="Explore our advantages">
-            <a class="advantage-summary" href="#trade-in">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M4 8h15m-4-4 4 4-4 4M20 16H5m4-4-4 4 4 4" />
-              </svg>
-              <span class="summary-text"
-                ><strong>Trade in. Upgrade.</strong
-                ><span
-                  >Exchange existing equipment for your next machine.</span
-                ></span
-              >
-            </a>
-            <a class="advantage-summary" href="#rental">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="4" y="5" width="16" height="16" rx="3" />
-                <path d="M8 3v4m8-4v4M4 10h16m-11 5 2 2 4-4" />
-              </svg>
-              <span class="summary-text"
-                ><strong>Rent. Then decide.</strong
-                ><span>Flexible rental, with an option to buy.</span></span
-              >
-            </a>
-            <a class="advantage-summary" href="#custom">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 3v8m0 4v6m7-18v3m0 4v11m7-18v11m0 4v3" />
-                <rect x="2" y="11" width="6" height="4" rx="1" />
-                <rect x="9" y="6" width="6" height="4" rx="1" />
-                <rect x="16" y="14" width="6" height="4" rx="1" />
-              </svg>
-              <span class="summary-text"
-                ><strong>Made for your process.</strong
-                ><span
-                  >Four customization directions for your production.</span
-                ></span
-              >
-            </a>
-            <a class="advantage-summary" href="#remote">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M4 13v-1a8 8 0 0 1 16 0v1m0 4v1a3 3 0 0 1-3 3h-3" />
-                <rect x="2" y="11" width="5" height="7" rx="2" />
-                <rect x="17" y="11" width="5" height="7" rx="2" />
-              </svg>
-              <span class="summary-text"
-                ><strong>Support across borders.</strong
-                ><span
-                  >Remote troubleshooting and replacement parts.</span
-                ></span
-              >
-            </a>
-            <a class="advantage-summary" href="#support">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 2" />
-              </svg>
-              <span class="summary-text"
-                ><strong>Here, 24/7.</strong
-                ><span
-                  >Dedicated sales and technical follow-through.</span
-                ></span
-              >
-            </a>
+            <a class="advantage-summary" href="#trade-in"
+              ><span class="advantage-card">
+                <svg
+                  class="service-mark"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 8h15m-4-4 4 4-4 4M20 16H5m4-4-4 4 4 4" />
+                </svg>
+                <span class="summary-text"
+                  ><strong>Trade in. Upgrade.</strong
+                  ><span
+                    >Exchange existing equipment for your next machine.</span
+                  ></span
+                >
+                <svg
+                  class="summary-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <a class="advantage-summary" href="#rental"
+              ><span class="advantage-card">
+                <svg
+                  class="service-mark"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="5" width="16" height="16" rx="3" />
+                  <path d="M8 3v4m8-4v4M4 10h16m-11 5 2 2 4-4" />
+                </svg>
+                <span class="summary-text"
+                  ><strong>Rent. Then decide.</strong
+                  ><span>Flexible rental, with an option to buy.</span></span
+                >
+                <svg
+                  class="summary-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <a class="advantage-summary" href="#custom"
+              ><span class="advantage-card">
+                <svg
+                  class="service-mark"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 3v8m0 4v6m7-18v3m0 4v11m7-18v11m0 4v3" />
+                  <rect x="2" y="11" width="6" height="4" rx="1" />
+                  <rect x="9" y="6" width="6" height="4" rx="1" />
+                  <rect x="16" y="14" width="6" height="4" rx="1" />
+                </svg>
+                <span class="summary-text"
+                  ><strong>Made for your process.</strong
+                  ><span
+                    >Four customization directions for your production.</span
+                  ></span
+                >
+                <svg
+                  class="summary-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <a class="advantage-summary" href="#remote"
+              ><span class="advantage-card">
+                <svg
+                  class="service-mark"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 13v-1a8 8 0 0 1 16 0v1m0 4v1a3 3 0 0 1-3 3h-3" />
+                  <rect x="2" y="11" width="5" height="7" rx="2" />
+                  <rect x="17" y="11" width="5" height="7" rx="2" />
+                </svg>
+                <span class="summary-text"
+                  ><strong>Support across borders.</strong
+                  ><span
+                    >Remote troubleshooting and replacement parts.</span
+                  ></span
+                >
+                <svg
+                  class="summary-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <a class="advantage-summary" href="#support"
+              ><span class="advantage-card">
+                <svg
+                  class="service-mark"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+                <span class="summary-text"
+                  ><strong>Here, 24/7.</strong
+                  ><span
+                    >Dedicated sales and technical follow-through.</span
+                  ></span
+                >
+                <svg
+                  class="summary-arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
           </div>
         </div>
 

@@ -1,3 +1,31 @@
+@font-face {
+  font-family: "Barlow";
+  src: url("assets/fonts/Barlow-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("assets/fonts/Barlow-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("assets/fonts/Barlow-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("assets/fonts/Barlow-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 :root {
   color-scheme: dark;
   --black: #000;
@@ -5,7 +33,9 @@
   --muted: #929297;
   --line: #262628;
   --orange: #ff792c;
-  --card: #101012;
+  --card: #191b1c;
+  --body-ink: #c0c2c4;
+  --card-ink: #f1f1ee;
   --radius: 30px;
   --shell: 1200px;
 }
@@ -20,7 +50,7 @@ body {
   margin: 0;
   background: var(--black);
   color: var(--white);
-  font-family: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+  font-family: "Barlow", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 body,
@@ -87,8 +117,8 @@ a:focus-visible {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(0, 0, 0, 0.84);
-  backdrop-filter: blur(20px);
+  background: var(--black);
+
   border-bottom: 1px solid #202022;
 }
 .nav {
@@ -166,12 +196,12 @@ a:focus-visible {
   font-size: clamp(64px, 7.7vw, 106px);
   line-height: 1.01;
   font-weight: 600;
-  letter-spacing: -6px;
+  letter-spacing: -0.04em;
 }
 .hero-description {
   font-size: 17px;
   line-height: 1.55;
-  color: #a1a1a6;
+  color: var(--body-ink);
   margin-top: 26px;
 }
 .button {
@@ -202,16 +232,7 @@ a:focus-visible {
   border: 1px solid #1c1c1f;
   isolation: isolate;
 }
-.stage-light {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(
-    ellipse at 50% 100%,
-    #4b301b40 0,
-    transparent 65%
-  );
-}
+
 .hero-machine {
   width: 83%;
   height: 108%;
@@ -228,8 +249,8 @@ a:focus-visible {
   right: 30px;
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
-  color: #a1a1a6;
+  font-size: 12px;
+  color: var(--body-ink);
 }
 .hero-stage-caption span {
   padding: 5px 8px;
@@ -243,7 +264,7 @@ a:focus-visible {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  font-size: 11px;
+  font-size: 12px;
   color: #96969c;
 }
 .hero-footnote a {
@@ -266,7 +287,7 @@ a:focus-visible {
   font-weight: 600;
 }
 .section-heading > p {
-  color: #a1a1a6;
+  color: var(--body-ink);
   font-size: 15px;
   line-height: 1.65;
   padding-bottom: 4px;
@@ -282,7 +303,7 @@ a:focus-visible {
   justify-content: space-between;
   padding: 30px 36px 0;
   font-size: 12px;
-  color: #a1a1a6;
+  color: var(--body-ink);
 }
 .product-model {
   color: #f5f5f7;
@@ -314,7 +335,7 @@ a:focus-visible {
 }
 .product-bottomline p {
   font-size: 13px;
-  color: #a1a1a6;
+  color: var(--body-ink);
   line-height: 1.6;
   max-width: 540px;
 }
@@ -360,7 +381,7 @@ a:focus-visible {
 .product-note {
   text-align: center;
   color: #8e8e94;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.6;
   margin-top: 18px;
 }
@@ -378,61 +399,156 @@ a:focus-visible {
 }
 .why-heading h2 {
   font-size: clamp(52px, 7vw, 92px);
-  letter-spacing: -4.7px;
+  letter-spacing: -0.035em;
   line-height: 1.08;
   font-weight: 600;
 }
 .why-description {
   font-size: 19px;
   line-height: 1.5;
-  color: #a1a1a6;
+  color: var(--body-ink);
   margin-top: 25px;
 }
+/* Service choices stay in stable hit areas while their inner panels move. */
 .advantage-index {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
-  margin-top: 34px;
+  padding: 38px 28px 22px;
+  margin-top: 32px;
   text-align: left;
+  isolation: isolate;
 }
 .advantage-summary {
+  --card-x: 0px;
+  --card-y: 0px;
+  --card-angle: 0deg;
+  --card-scale: 1;
+  display: flex;
+  min-width: 0;
+  position: relative;
+}
+.advantage-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 22px;
-  padding: 25px 20px;
-  border: 1px solid #2c2c30;
-  border-radius: 20px;
-  background: #0d0d0f;
+  width: 100%;
+  min-height: 348px;
+  padding: 24px 20px 20px;
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--card-ink);
+  transform: translate(var(--card-x), var(--card-y)) rotate(var(--card-angle))
+    scale(var(--card-scale));
+  transform-origin: center 75%;
   transition:
-    border-color 0.2s,
+    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.2s;
 }
-.advantage-summary svg {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  color: var(--orange);
-}
 .summary-text {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: contents;
 }
 .summary-text strong {
-  font-size: 16px;
-  line-height: 1.35;
-  font-weight: 500;
-  letter-spacing: -0.3px;
+  order: 1;
+  font-size: 23px;
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  min-height: 52px;
+}
+.service-mark {
+  order: 2;
+  width: 62px;
+  height: 62px;
+  margin: 28px auto;
+  color: #b9bdbf;
+  stroke-width: 1;
+  flex-shrink: 0;
+  transition: color 0.2s;
 }
 .summary-text > span {
-  font-size: 12px;
-  line-height: 1.65;
-  color: #aaaab0;
+  order: 3;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--body-ink);
 }
-.advantage-summary:hover {
-  border-color: #77777c;
-  background: #18181b;
+.summary-arrow {
+  order: 4;
+  width: 20px;
+  height: 20px;
+  margin-top: auto;
+  padding-top: 0;
+  align-self: flex-end;
+  color: #d1d2d3;
+}
+.advantage-summary:is(:hover, :focus-visible) {
+  z-index: 2;
+}
+.advantage-summary:is(:hover, :focus-visible) .advantage-card {
+  background: #25282a;
+}
+.advantage-summary:is(:hover, :focus-visible) .service-mark {
+  color: var(--orange);
+}
+.advantage-summary:focus-visible {
+  outline: none;
+}
+.advantage-summary:focus-visible .advantage-card {
+  outline: 2px solid var(--orange);
+  outline-offset: 5px;
+}
+@media (min-width: 1101px) and (hover: hover) and (pointer: fine) {
+  .advantage-summary:nth-child(1) {
+    --card-angle: -3deg;
+    --card-y: 15px;
+  }
+  .advantage-summary:nth-child(2) {
+    --card-angle: -1.5deg;
+    --card-y: 4px;
+  }
+  .advantage-summary:nth-child(4) {
+    --card-angle: 1.5deg;
+    --card-y: 4px;
+  }
+  .advantage-summary:nth-child(5) {
+    --card-angle: 3deg;
+    --card-y: 15px;
+  }
+  .advantage-index:has(.advantage-summary:is(:hover, :focus-visible))
+    .advantage-summary {
+    --card-x: -10px;
+  }
+  .advantage-index
+    .advantage-summary:is(:hover, :focus-visible)
+    ~ .advantage-summary {
+    --card-x: 10px;
+  }
+  .advantage-index
+    .advantage-summary:has(+ .advantage-summary:is(:hover, :focus-visible)) {
+    --card-x: -26px;
+    --card-angle: -4deg;
+  }
+  .advantage-index
+    .advantage-summary:is(:hover, :focus-visible)
+    + .advantage-summary {
+    --card-x: 26px;
+    --card-angle: 4deg;
+  }
+  .advantage-index .advantage-summary:is(:hover, :focus-visible) {
+    --card-x: 0px;
+    --card-y: -26px;
+    --card-angle: 0deg;
+    --card-scale: 1.035;
+  }
+}
+@media (max-width: 1100px) and (min-width: 641px) {
+  .advantage-index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-inline: 0;
+  }
+  .advantage-card {
+    min-height: 310px;
+  }
 }
 .advantage {
   padding-top: 125px;
@@ -461,9 +577,9 @@ a:focus-visible {
 }
 .advantage-copy > p:not(.advantage-category) {
   grid-column: 2;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #a1a1a6;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--body-ink);
   max-width: 460px;
 }
 .text-link {
@@ -500,7 +616,7 @@ a:focus-visible {
   gap: 15px;
 }
 .small-tag {
-  font-size: 10px;
+  font-size: 12px;
   border: 1px solid #48484c;
   border-radius: 30px;
   color: #c0c0c5;
@@ -511,11 +627,11 @@ a:focus-visible {
   display: flex;
   justify-content: space-between;
   color: #8e8e94;
-  font-size: 11px;
+  font-size: 12px;
   padding: 0 34px 28px;
 }
 .service-note {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.7;
   color: #86868c;
   margin-top: 15px;
@@ -597,7 +713,7 @@ a:focus-visible {
   font-weight: 500;
 }
 .rental-path small {
-  font-size: 11px;
+  font-size: 12px;
   color: #99999f;
   margin-top: 8px;
 }
@@ -621,8 +737,8 @@ a:focus-visible {
 .image-annotation {
   display: block;
   text-align: center;
-  font-size: 11px;
-  color: #a1a1a6;
+  font-size: 12px;
+  color: var(--body-ink);
   margin-top: 3px;
 }
 .custom-option {
@@ -702,7 +818,7 @@ a:focus-visible {
   mix-blend-mode: lighten;
 }
 .support-signal {
-  font-size: 11px;
+  font-size: 12px;
   color: #bdbdc2;
   display: flex;
   align-items: center;
@@ -720,8 +836,8 @@ a:focus-visible {
 .support-route {
   display: flex;
   gap: 20px;
-  font-size: 11px;
-  color: #a1a1a6;
+  font-size: 12px;
+  color: var(--body-ink);
   align-items: center;
 }
 .support-route > span:nth-child(2) {
@@ -767,8 +883,8 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 18px;
-  font-size: 11px;
-  color: #a1a1a6;
+  font-size: 12px;
+  color: var(--body-ink);
   padding: 0 28px 32px;
 }
 .connection-line {
@@ -792,7 +908,7 @@ a:focus-visible {
 .contact-heading > p:last-child {
   font-size: 16px;
   line-height: 1.65;
-  color: #a1a1a6;
+  color: var(--body-ink);
   margin-top: 28px;
 }
 .contact-people {
@@ -834,7 +950,7 @@ a:focus-visible {
   color: #85858c;
 }
 .preview-note {
-  font-size: 11px;
+  font-size: 12px;
   color: #86868c;
   line-height: 1.7;
   margin-top: 28px;
@@ -864,7 +980,7 @@ a:focus-visible {
   justify-content: space-between;
   gap: 20px;
   width: 100%;
-  font-size: 10px;
+  font-size: 12px;
   color: #797980;
   margin-top: 10px;
 }
@@ -884,9 +1000,6 @@ a:focus-visible {
   }
 }
 @media (max-width: 1000px) {
-  .advantage-index {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
   .shell {
     width: calc(100% - 64px);
   }
@@ -897,7 +1010,7 @@ a:focus-visible {
     padding-top: 55px;
   }
   .hero h1 {
-    letter-spacing: -4px;
+    letter-spacing: -0.04em;
   }
   .hero-stage {
     height: 410px;
@@ -948,7 +1061,7 @@ a:focus-visible {
   }
   .nav-links {
     gap: 19px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .nav-machines {
     display: none;
@@ -968,12 +1081,12 @@ a:focus-visible {
   }
   .hero h1 {
     font-size: 57px;
-    letter-spacing: -3.5px;
+    letter-spacing: -0.04em;
     line-height: 1.04;
   }
   .hero-description {
-    font-size: 13px;
-    line-height: 1.65;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 21px;
   }
   .button {
@@ -998,10 +1111,10 @@ a:focus-visible {
     left: 18px;
     right: 18px;
     bottom: 17px;
-    font-size: 9px;
+    font-size: 12px;
   }
   .hero-footnote {
-    font-size: 9px;
+    font-size: 12px;
     gap: 15px;
     line-height: 1.6;
     margin-top: 14px;
@@ -1026,7 +1139,7 @@ a:focus-visible {
   }
   .product-topline {
     padding: 23px 21px 0;
-    font-size: 10px;
+    font-size: 12px;
   }
   .product-picture {
     height: 260px;
@@ -1054,10 +1167,10 @@ a:focus-visible {
   }
   .product-choice {
     padding: 10px 19px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .product-note {
-    font-size: 10px;
+    font-size: 12px;
     padding-inline: 10px;
   }
   .section-intro {
@@ -1066,7 +1179,7 @@ a:focus-visible {
   }
   .why-heading h2 {
     font-size: 48px;
-    letter-spacing: -2.6px;
+    letter-spacing: -0.035em;
   }
   .why-description {
     font-size: 15px;
@@ -1076,30 +1189,46 @@ a:focus-visible {
     grid-template-columns: 1fr;
     gap: 8px;
     margin-top: 25px;
+    padding: 0;
   }
   .advantages.section-space {
     padding-top: 48px;
   }
-  .advantage-summary {
-    flex-direction: row;
+  .advantage-card {
+    min-height: 138px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 18px;
+    column-gap: 16px;
+    row-gap: 7px;
     align-items: center;
-    gap: 17px;
-    padding: 17px 18px;
-    border-radius: 16px;
   }
-  .advantage-summary svg {
-    width: 24px;
-    height: 24px;
-  }
-  .summary-text {
-    gap: 5px;
+  .service-mark {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 36px;
+    height: 36px;
+    margin: 0;
   }
   .summary-text strong {
-    font-size: 16px;
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 21px;
+    min-height: 0;
   }
   .summary-text > span {
-    font-size: 12px;
-    line-height: 1.5;
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .summary-arrow {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    align-self: center;
   }
   .advantage {
     padding-top: 85px;
@@ -1117,9 +1246,13 @@ a:focus-visible {
     letter-spacing: -1.8px;
     line-height: 1.1;
   }
+  #custom-title {
+    font-size: 32px;
+    letter-spacing: -0.03em;
+  }
   .advantage-copy > p:not(.advantage-category) {
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.6;
     margin-top: 23px;
     max-width: none;
   }
@@ -1149,7 +1282,7 @@ a:focus-visible {
     height: 150px;
   }
   .trade-machines > div > span {
-    font-size: 9px;
+    font-size: 12px;
     margin-top: 5px;
   }
   .trade-arrow {
@@ -1157,11 +1290,11 @@ a:focus-visible {
   }
   .visual-bottom {
     padding: 0 21px 23px;
-    font-size: 9px;
+    font-size: 12px;
     gap: 12px;
   }
   .service-note {
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 12px;
     line-height: 1.6;
   }
@@ -1176,7 +1309,7 @@ a:focus-visible {
     font-size: 12px;
   }
   .rental-path small {
-    font-size: 9px;
+    font-size: 12px;
   }
   .path-dot {
     margin-bottom: 12px;
@@ -1195,7 +1328,7 @@ a:focus-visible {
     height: 195px;
   }
   .image-annotation {
-    font-size: 10px;
+    font-size: 12px;
     margin-top: -2px;
   }
   .custom-options {
@@ -1208,7 +1341,7 @@ a:focus-visible {
   }
   .custom-detail {
     padding: 20px 21px 24px;
-    font-size: 11px;
+    font-size: 12px;
     min-height: 85px;
   }
   .remote-visual {
@@ -1261,7 +1394,7 @@ a:focus-visible {
     margin-top: -17px;
   }
   .support-steps {
-    font-size: 9px;
+    font-size: 12px;
     gap: 8px;
     padding: 10px 16px 27px;
   }
@@ -1293,21 +1426,21 @@ a:focus-visible {
     font-size: 12px;
   }
   .preview-note {
-    font-size: 10px;
+    font-size: 12px;
   }
   .footer {
     gap: 17px;
   }
   .footer > p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .footer > a:nth-of-type(2) {
-    font-size: 10px;
+    font-size: 12px;
   }
   .footer-bottom {
     flex-direction: column;
     gap: 10px;
-    font-size: 9px;
+    font-size: 12px;
     margin-top: 15px;
   }
 }
@@ -1339,5 +1472,11 @@ a:focus-visible {
   *:before,
   *:after {
     transition: none !important;
+  }
+  .advantage-summary {
+    --card-x: 0px !important;
+    --card-y: 0px !important;
+    --card-angle: 0deg !important;
+    --card-scale: 1 !important;
   }
 }
