@@ -514,15 +514,6 @@ a:focus-visible {
     --card-angle: 3deg;
     --card-y: 15px;
   }
-  .advantage-index:has(.advantage-summary:is(:hover, :focus-visible))
-    .advantage-summary {
-    --card-x: -10px;
-  }
-  .advantage-index
-    .advantage-summary:is(:hover, :focus-visible)
-    ~ .advantage-summary {
-    --card-x: 10px;
-  }
   .advantage-index
     .advantage-summary:has(+ .advantage-summary:is(:hover, :focus-visible)) {
     --card-x: -26px;
@@ -536,9 +527,30 @@ a:focus-visible {
   }
   .advantage-index .advantage-summary:is(:hover, :focus-visible) {
     --card-x: 0px;
-    --card-y: -26px;
+    --card-y: -36px;
     --card-angle: 0deg;
     --card-scale: 1.035;
+  }
+}
+@media (min-width: 641px) and (max-width: 1100px) and (hover: hover) and (pointer: fine) {
+  .advantage-index {
+    column-gap: 40px;
+    row-gap: 56px;
+  }
+  .advantage-index .advantage-summary:is(:hover, :focus-visible) {
+    --card-y: -28px;
+    --card-scale: 1.03;
+  }
+  .advantage-summary:not(:nth-child(3n)):has(
+      + .advantage-summary:is(:hover, :focus-visible)
+    ) {
+    --card-x: -18px;
+    --card-angle: -2deg;
+  }
+  .advantage-summary:is(:hover, :focus-visible):not(:nth-child(3n))
+    + .advantage-summary {
+    --card-x: 18px;
+    --card-angle: 2deg;
   }
 }
 @media (max-width: 1100px) and (min-width: 641px) {
@@ -1462,6 +1474,21 @@ a:focus-visible {
   }
   .contact-heading h2 {
     font-size: 55px;
+  }
+}
+@media (max-width: 640px) and (hover: hover) and (pointer: fine) {
+  .advantage-index {
+    row-gap: 32px;
+  }
+  .advantage-index .advantage-summary:is(:hover, :focus-visible) {
+    --card-y: -10px;
+    --card-scale: 1.015;
+  }
+  .advantage-summary:has(+ .advantage-summary:is(:hover, :focus-visible)) {
+    --card-y: -22px;
+  }
+  .advantage-summary:is(:hover, :focus-visible) + .advantage-summary {
+    --card-y: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
